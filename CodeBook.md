@@ -1,5 +1,6 @@
-|Column Name|Column Description|Minimum Value|Maximum Value|Unit|
+|Variable Name|Variable Description|Minimum Value|Maximum Value|Unit|
 |:----------:|:----------:|:----------:|:----------:|:----------:|
+|activity|activity| | | |
 |subjectId|subjectId|1|30|sec|
 |meanTimeForBodyAccelerationMinusMeanAlongXAxis|meanTimeForBodyAccelerationMinusMeanAlongXAxis|0.22159824394|0.3014610196|sec|
 |meanTimeForBodyAccelerationMinusMeanAlongYAxis|meanTimeForBodyAccelerationMinusMeanAlongYAxis|-0.0405139534294|-0.00130828765170213|sec|
