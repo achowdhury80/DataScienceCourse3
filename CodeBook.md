@@ -1,3 +1,8 @@
+# Code book for Samsung Data clean up
+# Vesrion 1.0
+# December 22nd, 2015
+
+
 |Variable Name|Variable Description|Minimum Value|Maximum Value|Unit|
 |:----------:|:----------:|:----------:|:----------:|:----------:|
 |activity|Activity type|NA - Categorical Data|NA - Categorical Data|NA - Categorical Data|
