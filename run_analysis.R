@@ -1,30 +1,14 @@
+# This script expects source file as an archive file with name 'UCIData.zip'. If the file name is different, please modify the variable 'sourceZipFileName' to reflect the source archive file name.
+sourceZipFileName <- 'UCIData.zip';
+unzippedDirectoryName <- 'UCI HAR Dataset';
+
+# unzip the archive file
+unzip(sourceZipFileName);
+
 # retrieve current working directory
 currentWorkingDir <- getwd();
 
-# the data directory is relative to current directory. 
-dataDirectory <- './data';
-destinationZipFileName <- 'UCIData.zip';
-unzippedDirectoryName <- 'UCI HAR Dataset';
-fileUrl <- 'https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip';
-tidyDataFileName <- 'tidyData.txt';
-
-# create destination directory
-if(!dir.exists(dataDirectory)){
-	dir.create(dataDirectory);
-}
-destinationFileNameWithPath <- paste(dataDirectory, '/', destinationZipFileName, sep="");
-
-#download file
-download.file(fileUrl, destinationFileNameWithPath);
-
-# move to data directory
-setwd(dataDirectory);
-dataDirectory <- getwd();
-
-# unzip the archive file
-unzip(destinationZipFileName);
-
-# moved to unzipped folder
+# moved working directory to unzipped folder
 setwd(paste('./', unzippedDirectoryName, sep=""));
 
 # load activity levels
@@ -41,6 +25,7 @@ selectedFeatures <- as.vector(features[target_features,2]);
 subject_test <- read.table('./test/subject_test.txt', col.names = c('Subject_id'));
 X_test <- read.table('./test/X_test.txt');
 y_test <- read.table('./test/y_test.txt', col.names = c('Activity_Id'));
+
 # merge test data
 test_data <- cbind(X_test, subject_test, y_test);
 
@@ -48,6 +33,7 @@ test_data <- cbind(X_test, subject_test, y_test);
 subject_train <- read.table('./train/subject_train.txt', col.names = c('Subject_id'));
 X_train <- read.table('./train/X_train.txt');
 y_train <- read.table('./train/y_train.txt', col.names = c('Activity_Id'));
+
 #merge train data
 train_data <- cbind(X_train, subject_train, y_train);
 
@@ -79,14 +65,11 @@ tidyData <- summarize(groupped_data, meanTimeForBodyAccelerationMinusMeanAlongXA
 ,meanAngleBetweenTimeForBodyGyroMeanAndGravityMean = mean(angleBetweenTimeForBodyGyroMeanAndGravityMean),meanAngleBetweenTimeForBodyGyroJerkMeanAndGravityMean = mean(angleBetweenTimeForBodyGyroJerkMeanAndGravityMean),meanAngleBetweenXAxisAndGravityMean = mean(angleBetweenXAxisAndGravityMean),meanAngleBetweenYAxisAndGravityMean = mean(angleBetweenYAxisAndGravityMean),meanAngleBetweenZAxisAndGravityMean = mean(angleBetweenZAxisAndGravityMean)
 );
 
-# move to data directory
-setwd(dataDirectory);
-
-# write tidy data into a file under data directory
-write.table(tidyData, file= tidyDataFileName, row.name=F);
-
-# removing temporary objects
-rm(dataDirectory, destinationZipFileName, unzippedDirectoryName, destinationFileNameWithPath, fileUrl, tidyDataFileName, activity_levels, features, target_features, selectedFeatures, subject_test, X_test, y_test, test_data, subject_train, X_train, y_train, train_data, combined_data, groupped_data);
-
 # switch back to starting directory
 setwd(currentWorkingDir);
+
+# delete the 
+unlink(unzippedDirectoryName, recursive = TRUE);
+
+# removing temporary objects
+rm(currentWorkingDir, sourceZipFileName, unzippedDirectoryName, activity_levels, features, target_features, selectedFeatures, subject_test, X_test, y_test, test_data, subject_train, X_train, y_train, train_data, combined_data, groupped_data, merged_data);
