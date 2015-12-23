@@ -1,13 +1,36 @@
-# Code book for Samsung Data clean up
-### Vesrion 1.0
-### December 22nd, 2015
+## Code book for Samsung Data clean up
+#### Vesrion 1.0
+#### December 22nd, 2015
 
-###Introduction
+#### Introduction
 
-### Data clean up steps
+The code book describes the cleanup process for Human Activity Recognition Using Smartphones Dataset and also the variables in the tidy data set.
 
+To understand the source data please refer to README.txt and fetures_info.txt in the source archive file.
 
-### List of Variables
+Please refer to the README.md file to run the script in R environment.
+
+#### Data clean up steps
+Here is the summary of steps.
+
+1. Retrieve the source data in archived from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip.
+2. Put the archive file in R working directory.
+3. Unzip the file.
+4. Load the Test measurements, subjects and activity data from the test directory.
+5. Merge the data using column bind. Here we have row by row match for the above three datasets.
+6. Load the Train measurements, subjects and activity data from the train directory.
+7. Merge the data using column bind. Here we have row by row match for the above three datasets.
+8. Combine the test and train datesets using row bind.
+9. Load fetures data.
+9. Filter the rows which has 'mean' or 'std' in the name.
+10. From the combined data set keep the subject, activity and only the features those are selected in the previous step.
+11. Load Activity level data.
+12. In the combined dataset replace the activity id by activity level.
+13.  Appropriately labels the data set with descriptive variable names. 
+14.  Group the data based on activity and subject.
+15.  Find the mean of all measurement variables.
+
+#### List of Variables
 |Variable Name|Variable Description|Minimum Value|Maximum Value|Unit|
 |:----------:|:----------:|:----------:|:----------:|:----------:|
 |activity|Activity type|NA - Categorical Data|NA - Categorical Data|NA - Categorical Data|
