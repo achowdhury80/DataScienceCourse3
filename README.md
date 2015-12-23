@@ -29,6 +29,7 @@ Here is the summary of steps executed in the script.
 12.  Appropriately labels the data set with descriptive variable names. 
 13.  Group the data based on activity and subject.
 14.  Find the mean of all measurement variables. 
+15.  Delete the unzipped directory and remove temporary objects.
 
 
 
