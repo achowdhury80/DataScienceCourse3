@@ -13,24 +13,22 @@
 
 
 #### Data clean up steps
-Here is the summary of steps.
+Here is the summary of steps executed in the script.
 
-1. Retrieve the source data in archived from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip.
-2. Put the archive file in R working directory.
-3. Unzip the file.
-4. Load the Test measurements, subjects and activity data from the test directory.
+1. Unzip the file.
+2. Load the Test measurements, subjects and activity data from the test directory.
+3. Merge the data using column bind. Here we have row by row match for the above three datasets.
+4. Load the Train measurements, subjects and activity data from the train directory.
 5. Merge the data using column bind. Here we have row by row match for the above three datasets.
-6. Load the Train measurements, subjects and activity data from the train directory.
-7. Merge the data using column bind. Here we have row by row match for the above three datasets.
-8. Combine the test and train datesets using row bind.
-9. Load fetures data.
-9. Filter the rows which has 'mean' or 'std' in the name.
-10. From the combined data set keep the subject, activity and only the features those are selected in the previous step.
-11. Load Activity level data.
-12. In the combined dataset replace the activity id by activity level.
-13.  Appropriately labels the data set with descriptive variable names. 
-14.  Group the data based on activity and subject.
-15.  Find the mean of all measurement variables. 
+6. Combine the test and train datesets using row bind.
+7. Load fetures data.
+8. Filter the rows which has 'mean' or 'std' in the name.
+9. From the combined data set keep the subject, activity and only the features those are selected in the previous step.
+10. Load Activity level data.
+11. In the combined dataset replace the activity id by activity level.
+12.  Appropriately labels the data set with descriptive variable names. 
+13.  Group the data based on activity and subject.
+14.  Find the mean of all measurement variables. 
 
 
 
