@@ -68,7 +68,7 @@ tidyData <- summarize(groupped_data, meanTimeForBodyAccelerationMinusMeanAlongXA
 # switch back to starting directory
 setwd(currentWorkingDir);
 
-# delete the 
+# delete the unzipped directory recursively
 unlink(unzippedDirectoryName, recursive = TRUE);
 
 # removing temporary objects
