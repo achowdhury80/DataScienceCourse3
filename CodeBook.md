@@ -1,5 +1,6 @@
-Researcher Dictionary
-For
-8-Truck Event Eyeglance Data
-Version 1.0
-August 3, 2010 
+| Tables   |      Are      |  Cool |
+|----------|:-------------:|------:|
+| col 1 is |  left-aligned | $1600 |
+| col 2 is |    centered   |   $12 |
+| col 3 is | right-aligned |    $1 |
+    
